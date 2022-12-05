@@ -1,0 +1,12 @@
+[Unit]
+Description=Spectre validator service
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=5
+ExecStart=/bin/sh -c '/bin/geth --gcmode archive --bootnodes "enode://cfe142826d183a0560ca2d2409d050b97c4c12fff4a37fcdc6822b079da0140fe083687daef13102f5c5546fd1788228c3251f852fac16679c686a7609728c09@8.219.127.199:32668" --config /app/config.toml --mine --miner.etherbase 0x378DBa920198BcDB5FdE8c02056512DF8b802F02 --unlock 0x378DBa920198BcDB5FdE8c02056512DF8b802F02 --password /app/.accountpassword'
+
+[Install]
+WantedBy=multi-user.target
